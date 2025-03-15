@@ -152,6 +152,52 @@
     }
   });
 
+  // contact form handling function
+
+  document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("-CBLXqsbo1iVJwqcU"); // Replace with your actual EmailJS User ID
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Show loading
+        document.querySelector(".loading").style.display = "block";
+        // document.querySelector(".error-message").style.display = "none";
+        // document.querySelector(".sent-message").style.display = "none";
+
+        // Collect form data
+        let params = {
+          to_email: "Sagar@apptoes.com", // Replace with a fixed recipient or make dynamic
+          from_name: document.getElementById("name").value,
+          from_email: document.getElementById("email").value,
+          subject: document.getElementById("subject").value,
+          message: document.getElementById("message").value
+      };      
+
+        // Send email using EmailJS
+        emailjs.send("service_apptoes", "template_h63bpso", params)
+            .then(function (response) {
+                console.log("Email sent successfully!", response);
+
+                // Hide loading and show success message
+                document.querySelector(".loading").style.display = "none";
+                document.querySelector(".error-message").style.display = "none";
+                document.querySelector(".sent-message").style.display = "block";
+
+                // Reset form
+                document.getElementById("contact-form").reset();
+            }).catch(function (error) {
+              console.error("Email failed to send!", error);
+
+              // Hide loading and show error message
+              document.querySelector(".loading").style.display = "none";
+              document.querySelector(".error-message").textContent = "Failed to send email. Please try again!";
+              document.querySelector(".error-message").style.display = "block";
+          });
+    });
+  });
+
+
   /**
    * Navmenu Scrollspy
    */

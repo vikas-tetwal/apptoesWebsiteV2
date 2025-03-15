@@ -219,7 +219,7 @@
               <div class="row gy-4">
                 <div class="col-lg-5">
                   <div class="profile d-flex align-items-center gap-3">
-                    <img src="assets/img/avatar-1.webp" alt="CEO Profile" class="profile-image">
+                    <img src="assets/img/avatar-1.jpg" alt="CEO Profile" class="profile-image">
                     <div>
                      <!--  <h4 class="profile-name">Sagar G</h4> -->
                       <p class="profile-position">Customer &amp; Relations</p>
@@ -537,7 +537,8 @@ At Apptoes, we build scalable, high-performance web applications with a focus on
               <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
               <p>Clients</p>
             </div>
-          </div><!-- End Stats Item -->
+          </div>
+          <!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item text-center w-100 h-100">
@@ -998,36 +999,37 @@ You maintain complete control over tasks and workflows without worrying about wo
               <h3>Get In Touch</h3>
               <p>Fill out the form below, and our team will get back to you as soon as possible.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form id="contact-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
-
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
                   </div>
-
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+              
+                  <div class="col-md-6">
+                    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
                   </div>
-
+              
                   <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    <input type="text" id="subject" class="form-control" placeholder="Subject" required>
                   </div>
-
+              
                   <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    <textarea id="message" class="form-control" rows="6" placeholder="Message" required></textarea>
                   </div>
-
+              
                   <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
 
+                  <div class="error-message" style="display: none; font-size: 16px; font-weight: bold; color: #dc3545; background: rgba(220, 53, 69, 0.1); padding: 10px; border-radius: 5px;">
+                      ❌ Error, please try again.
+                  </div>
+              
+                  <div class="sent-message" style="display: none; font-size: 16px; font-weight: bold; color: #28a745; background: rgba(40, 167, 69, 0.1); padding: 10px; border-radius: 5px;">
+                      ✅ Your message has been sent. Thank you!
+                  </div>              
                     <button type="submit" class="btn">Send Message</button>
                   </div>
-
                 </div>
-              </form>
-
+              </form>              
             </div>
           </div>
 
@@ -1123,6 +1125,8 @@ You maintain complete control over tasks and workflows without worrying about wo
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
